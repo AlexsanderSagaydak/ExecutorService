@@ -51,6 +51,7 @@ public class TaskExecutorServiceImpl implements TaskExecutorService {
     @Override
     public void stopExecution() {
         if (scheduler != null) {
+            isRunning = false;
             scheduler.shutdown();
             try {
                 if (!scheduler.awaitTermination(60, TimeUnit.SECONDS)) {
