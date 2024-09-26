@@ -54,7 +54,7 @@ public class TaskExecutorServiceImpl implements TaskExecutorService {
             isRunning = false;
             scheduler.shutdown();
             try {
-                if (!scheduler.awaitTermination(60, TimeUnit.SECONDS)) {
+                if (!scheduler.awaitTermination(schedulerConfig.getAwaitTermination(), TimeUnit.SECONDS)) {
                     scheduler.shutdownNow();
                 }
             } catch (InterruptedException e) {

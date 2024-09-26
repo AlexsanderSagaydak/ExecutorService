@@ -32,4 +32,5 @@ public class ExecutorConfig {
     public Long initialDelay;
     public int corePoolSize;
     public Long delayBetweenRuns;
+    public Long awaitTermination;
 }

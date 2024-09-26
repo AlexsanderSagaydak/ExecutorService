@@ -17,3 +17,4 @@ executor-config:
   initialDelay: 0
   corePoolSize: 1
   delayBetweenRuns: 60
+  awaitTermination: 60
