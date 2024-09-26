@@ -52,7 +52,7 @@ public class TaskCreator {
     }
 
     private void planBatchProcessing(List<TreatmentPlan> plans) {
-        List<TreatmentTask> taskList = new ArrayList<>();
+        List<TreatmentTask> taskList = new ArrayList<>(batchSize);
         for (TreatmentPlan plan : plans) {
             var task = generateTasksForPlan(plan);
             taskList.add(task);
