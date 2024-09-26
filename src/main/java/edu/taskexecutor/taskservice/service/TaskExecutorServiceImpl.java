@@ -21,11 +21,10 @@ import java.util.concurrent.TimeUnit;
 public class TaskExecutorServiceImpl implements TaskExecutorService {
 
     private static final Logger logger = LoggerFactory.getLogger(TaskExecutorServiceImpl.class);
-    private ExecutorConfig schedulerConfig;
-    private ScheduledExecutorService scheduler;
+    private final ExecutorConfig schedulerConfig;
     private final TaskCreator taskCreator;
-
     private volatile boolean isRunning = false;
+    private ScheduledExecutorService scheduler;
 
     public TaskExecutorServiceImpl(ExecutorConfig schedulerConfig, TaskCreator taskCreator) {
         this.schedulerConfig = schedulerConfig;
@@ -40,7 +39,6 @@ public class TaskExecutorServiceImpl implements TaskExecutorService {
             return;
         }
         isRunning = true;
-
         scheduler.scheduleAtFixedRate(() -> {
             try {
                 taskCreator.createTasks();
