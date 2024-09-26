@@ -39,8 +39,8 @@ public class TreatmentPlan {
 
     /**
      * Indicates whether the treatment plan is currently in progress.
-     * This field is set to {@code false} when a task for the patient has already been created based on this plan.
-     * Plans with this field set to {@code false} are excluded from further task creation in
+     * This field is set to {@code true} when a task for the patient has already been created based on this plan.
+     * Plans with this field set to {@code true} are excluded from further task creation in
      * {@link TaskCreator#createTasks()}.
      */
     @Column(name = "in_progress", nullable = false)
